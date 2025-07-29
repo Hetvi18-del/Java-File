@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuChain - Blockchain Document Verification</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>DocuChain</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn-secondary" onclick="showLogin()">Login</button>
+                <button class="btn-primary" onclick="showRegister()">Get Started</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Secure Document Verification with <span class="gradient-text">Blockchain</span></h1>
+                <p>Store, verify, and manage your important documents with tamper-proof blockchain technology. Academic records, ID proofs, and legal contracts - all secured without intermediaries.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary large" onclick="showUpload()">
+                        <i class="fas fa-upload"></i>
+                        Upload Document
+                    </button>
+                    <button class="btn-secondary large" onclick="showVerify()">
+                        <i class="fas fa-search"></i>
+                        Verify Document
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="documentsCount">1,247</span>
+                        <span class="stat-label">Documents Secured</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="verificationsCount">5,832</span>
+                        <span class="stat-label">Verifications Made</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="blockchain-animation">
+                    <div class="block" data-block="1">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Genesis</span>
+                    </div>
+                    <div class="block" data-block="2">
+                        <i class="fas fa-certificate"></i>
+                        <span>Academic</span>
+                    </div>
+                    <div class="block" data-block="3">
+                        <i class="fas fa-id-card"></i>
+                        <span>ID Proof</span>
+                    </div>
+                    <div class="block" data-block="4">
+                        <i class="fas fa-file-contract"></i>
+                        <span>Legal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose DocuChain?</h2>
+                <p>Revolutionary blockchain technology meets document security</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Tamper-Proof Security</h3>
+                    <p>Documents are cryptographically secured on the blockchain, making them impossible to alter or forge.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Verification</h3>
+                    <p>Verify document authenticity in seconds without relying on third-party intermediaries.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Accessibility</h3>
+                    <p>Access your documents from anywhere in the world with our decentralized storage system.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>No Intermediaries</h3>
+                    <p>Direct peer-to-peer verification eliminates the need for costly third-party validation services.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Complete Audit Trail</h3>
+                    <p>Track every interaction with your documents through an immutable blockchain ledger.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Manage and verify documents on any device with our responsive web application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How DocuChain Works</h2>
+                <p>Simple steps to secure your documents forever</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Upload Document</h3>
+                        <p>Upload your document and we'll create a unique cryptographic hash that represents your file.</p>
+                        <div class="step-visual">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Blockchain Registration</h3>
+                        <p>The document hash is registered on our blockchain with a timestamp and your digital signature.</p>
+                        <div class="step-visual">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Verification ID</h3>
+                        <p>Receive a unique verification ID that anyone can use to confirm your document's authenticity.</p>
+                        <div class="step-visual">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Share & Verify</h3>
+                        <p>Share your verification ID with anyone who needs to confirm your document is genuine.</p>
+                        <div class="step-visual">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <h2>Document Management Dashboard</h2>
+                <p>Manage all your verified documents in one place</p>
+            </div>
+            
+            <!-- Upload Area -->
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drop files here or click to upload</h3>
+                    <p>Supported formats: PDF, DOC, DOCX, JPG, PNG</p>
+                    <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                    <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Choose Files
+                    </button>
+                </div>
+            </div>
+
+            <!-- Document List -->
+            <div class="documents-section">
+                <div class="section-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search documents..." id="searchInput">
+                    </div>
+                    <div class="filter-controls">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="academic">Academic Records</option>
+                            <option value="identity">ID Proofs</option>
+                            <option value="legal">Legal Contracts</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="documents-grid" id="documentsGrid">
+                    <!-- Documents will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Verification Section -->
+            <div class="verification-section">
+                <h3>Verify a Document</h3>
+                <div class="verify-input">
+                    <input type="text" placeholder="Enter verification ID or upload file to verify" id="verifyInput">
+                    <button class="btn-primary" onclick="verifyDocument()">
+                        <i class="fas fa-search"></i>
+                        Verify
+                    </button>
+                </div>
+                <div class="verify-result" id="verifyResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have questions? We're here to help you secure your documents</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>support@docuchain.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Support Hours</h4>
+                            <p>24/7 Customer Support</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>DocuChain</span>
+                    </div>
+                    <p>Securing documents with blockchain technology for a trusted digital future.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DocuChain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login to DocuChain</h2>
+            <form class="auth-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Sign up</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Account</h2>
+            <form class="auth-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
