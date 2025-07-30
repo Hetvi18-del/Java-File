@@ -1,192 +1,255 @@
-# DocuChain - Blockchain Document Verification Platform
+# 🍽️ Campus Canteen - Digital Food Service
 
-DocuChain is a modern web application that provides blockchain-powered document verification and management services. It ensures tamper-proof storage and seamless verification of important documents like academic records, ID proofs, and legal contracts without intermediaries.
+A comprehensive web application for campus food services that allows students to view daily menus, place orders, manage their digital wallet, and provide feedback. Includes a powerful admin panel for managing the entire canteen operation.
 
-## 🚀 Features
+## ✨ Features
 
-### Core Functionality
-- **Blockchain-Based Storage**: Documents are cryptographically secured on a simulated blockchain
-- **Tamper-Proof Verification**: Immutable document hashes ensure authenticity
-- **Instant Verification**: Verify document authenticity in seconds using verification IDs
-- **No Intermediaries**: Direct peer-to-peer verification system
-- **Complete Audit Trail**: Track all document interactions through blockchain ledger
+### 🎓 Student Features
+- **User Authentication**: Secure registration and login system
+- **Daily Menu**: Browse categorized menu items with detailed information
+- **Smart Ordering**: Add items to cart and place orders with quantity control
+- **Digital Wallet**: Cashless transactions with wallet recharge functionality
+- **Order Tracking**: Real-time order status updates
+- **Feedback System**: Rate and review meals with detailed feedback
+- **Order History**: View past orders and transaction history
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-### Document Management
-- **Drag & Drop Upload**: Easy file upload with drag-and-drop interface
-- **Multiple File Formats**: Support for PDF, DOC, DOCX, JPG, PNG files
-- **Document Categories**: Organize documents by type (Academic, Identity, Legal, Other)
-- **Search & Filter**: Find documents quickly with search and category filters
-- **Document Sharing**: Generate shareable verification links
-
-### User Experience
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Modern UI**: Clean, professional interface with smooth animations
-- **Real-time Notifications**: Instant feedback for all user actions
-- **User Authentication**: Secure login/registration system
-- **Document Dashboard**: Comprehensive document management interface
-
-### Blockchain Simulation
-- **Proof of Work**: Simplified mining algorithm for block creation
-- **Hash Generation**: Cryptographic hashing for document integrity
-- **Block Linking**: Proper blockchain structure with linked blocks
-- **Verification Proofs**: Downloadable blockchain verification certificates
+### 👨‍💼 Admin Features
+- **Dashboard Analytics**: Comprehensive overview of daily operations
+- **Menu Management**: Add, edit, and manage menu items with availability controls
+- **Order Management**: Track and update order statuses in real-time
+- **User Management**: View and manage student accounts
+- **Transaction Monitoring**: Track all wallet transactions and payments
+- **Feedback Management**: View and respond to customer feedback
+- **Analytics & Reports**: Detailed insights into sales and popular items
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: Custom CSS with modern design patterns
-- **Icons**: Font Awesome 6.0
-- **Fonts**: Inter font family from Google Fonts
-- **Storage**: LocalStorage for user sessions and document data
-- **Architecture**: Single Page Application (SPA)
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - Web application framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling
+- **JWT** - Authentication tokens
+- **bcryptjs** - Password hashing
+- **Express Validator** - Input validation
 
-## 📁 Project Structure
+### Frontend
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with gradients and animations
+- **JavaScript (ES6+)** - Interactive functionality
+- **Font Awesome** - Icons
+- **Google Fonts** - Typography
 
-```
-DocuChain/
-├── index.html          # Main HTML file with complete website structure
-├── styles.css          # Comprehensive CSS styling with animations
-├── script.js           # JavaScript functionality and blockchain simulation
-└── README.md           # Project documentation
-```
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- No additional software required - runs entirely in the browser
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- npm or yarn package manager
 
-### Installation & Setup
+### Installation
 
-1. **Clone or Download the Project**
+1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd DocuChain
+   cd canteen-app
    ```
 
-2. **Open in Browser**
-   - Simply open `index.html` in your web browser
-   - Or use a local web server for better performance:
-   
-   **Using Python:**
+2. **Install dependencies**
    ```bash
-   python -m http.server 8000
+   npm install
    ```
-   Then visit `http://localhost:8000`
-   
-   **Using Node.js:**
+
+3. **Set up environment variables**
    ```bash
-   npx serve .
+   cp .env.example .env
+   ```
+   Edit the `.env` file with your configuration:
+   ```env
+   NODE_ENV=development
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/canteen_db
+   JWT_SECRET=your_jwt_secret_key_here
+   JWT_EXPIRE=30d
    ```
 
-3. **Start Using DocuChain**
-   - The website will load with sample documents
-   - Create an account or use as anonymous user
-   - Upload documents and start verifying!
+4. **Start MongoDB**
+   Make sure MongoDB is running on your system.
 
-## 💡 How to Use
+5. **Seed the database** (Optional - for demo data)
+   ```bash
+   node seed.js
+   ```
 
-### Uploading Documents
-1. Click "Upload Document" or navigate to the Dashboard section
-2. Drag files to the upload area or click "Choose Files"
-3. Supported formats: PDF, DOC, DOCX, JPG, PNG
-4. Documents are automatically processed and added to blockchain
-5. Receive a unique verification ID for each document
+6. **Start the application**
+   ```bash
+   # Development mode
+   npm run dev
+   
+   # Production mode
+   npm start
+   ```
 
-### Verifying Documents
-1. Use the verification section or click "Verify Document"
-2. Enter the verification ID provided by the document owner
-3. System will check blockchain and display verification results
-4. Results show document authenticity, upload date, and blockchain details
+7. **Access the application**
+   Open your browser and navigate to `http://localhost:5000`
 
-### Managing Documents
-1. View all your documents in the Dashboard section
-2. Search documents by name or verification ID
-3. Filter by category (Academic, Identity, Legal, Other)
-4. View detailed document information
-5. Share verification links with others
-6. Download blockchain verification proofs
+## 👥 Demo Accounts
 
-### User Account
-1. Click "Get Started" to create an account
-2. Or click "Login" if you already have an account
-3. Account data is stored locally in your browser
-4. Logged-in users can manage their document library
+After running the seed script, you can use these demo accounts:
 
-## 🔧 Features in Detail
+### Admin Account
+- **Email**: admin@canteen.com
+- **Password**: admin123
 
-### Blockchain Simulation
-The application includes a simplified blockchain implementation with:
-- **Genesis Block**: Initial block to start the chain
-- **Proof of Work**: Simple mining algorithm requiring hash to start with '0'
-- **Block Structure**: Index, timestamp, data, previous hash, current hash, nonce
-- **Hash Generation**: Custom hashing function for data integrity
-- **Chain Validation**: Ensures blockchain integrity
+### Student Accounts
+- **Email**: john@student.edu | **Password**: student123
+- **Email**: jane@student.edu | **Password**: student123
+- **Email**: mike@student.edu | **Password**: student123
 
-### Document Security
-- **File Hashing**: Each document gets a unique cryptographic hash
-- **Blockchain Storage**: Document metadata stored immutably on blockchain
-- **Verification IDs**: Unique identifiers for easy document verification
-- **Tamper Detection**: Any document modification would change the hash
+## 📱 Usage Guide
 
-### User Interface
-- **Responsive Design**: Adapts to all screen sizes
-- **Smooth Animations**: CSS transitions and keyframe animations
-- **Interactive Elements**: Hover effects, loading states, notifications
-- **Accessibility**: Semantic HTML and keyboard navigation support
+### For Students
 
-## 🎨 Customization
+1. **Registration**: Create an account with your student details
+2. **Browse Menu**: Explore daily menu items by category
+3. **Place Orders**: Add items to cart and checkout using wallet balance
+4. **Recharge Wallet**: Add money to your digital wallet for cashless transactions
+5. **Track Orders**: Monitor your order status in real-time
+6. **Provide Feedback**: Rate and review your meals
 
-### Styling
-- Modify `styles.css` to change colors, fonts, and layout
-- CSS custom properties make theming easy
-- Responsive breakpoints can be adjusted for different devices
+### For Admins
 
-### Functionality
-- Extend `script.js` to add new features
-- Modify blockchain parameters (difficulty, block structure)
-- Add new document types or validation rules
+1. **Dashboard**: Monitor daily operations and key metrics
+2. **Menu Management**: Add new items, update prices, and manage availability
+3. **Order Processing**: Update order statuses and manage the kitchen workflow
+4. **User Management**: View student accounts and manage user access
+5. **Analytics**: Access detailed reports and insights
 
-### Content
-- Update `index.html` to change text content
-- Add new sections or modify existing ones
-- Customize contact information and branding
+## 🗂️ Project Structure
 
-## 🔒 Security Considerations
+```
+canteen-app/
+├── models/                 # Database models
+│   ├── User.js            # User model (students & admins)
+│   ├── MenuItem.js        # Menu item model
+│   ├── Order.js           # Order model
+│   ├── Transaction.js     # Wallet transaction model
+│   └── Feedback.js        # Feedback model
+├── routes/                # API routes
+│   ├── auth.js           # Authentication routes
+│   ├── menu.js           # Menu management routes
+│   ├── orders.js         # Order management routes
+│   ├── wallet.js         # Wallet & transaction routes
+│   ├── feedback.js       # Feedback routes
+│   └── admin.js          # Admin panel routes
+├── middleware/           # Custom middleware
+│   └── auth.js          # Authentication middleware
+├── public/              # Frontend files
+│   ├── index.html      # Main HTML file
+│   └── app.js          # Frontend JavaScript
+├── uploads/            # File uploads directory
+├── .env               # Environment variables
+├── server.js          # Main server file
+├── seed.js           # Database seeding script
+└── package.json      # Project dependencies
+```
 
-This is a demonstration/prototype application. For production use, consider:
-- Implement real blockchain integration (Ethereum, Hyperledger, etc.)
-- Add proper user authentication and authorization
-- Use secure file storage solutions
-- Implement proper cryptographic libraries
-- Add input validation and sanitization
-- Use HTTPS for all communications
+## 🔧 API Endpoints
 
-## 📱 Browser Compatibility
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get current user profile
+- `PUT /api/auth/profile` - Update user profile
 
-- **Chrome**: Full support
-- **Firefox**: Full support
-- **Safari**: Full support
-- **Edge**: Full support
-- **Mobile Browsers**: Responsive design works on all modern mobile browsers
+### Menu
+- `GET /api/menu` - Get all menu items
+- `GET /api/menu/:id` - Get single menu item
+- `POST /api/menu` - Create menu item (Admin)
+- `PUT /api/menu/:id` - Update menu item (Admin)
+- `DELETE /api/menu/:id` - Delete menu item (Admin)
+
+### Orders
+- `POST /api/orders` - Create new order
+- `GET /api/orders/my-orders` - Get user orders
+- `GET /api/orders/:id` - Get single order
+- `PATCH /api/orders/:id/cancel` - Cancel order
+- `GET /api/orders/admin/all` - Get all orders (Admin)
+- `PATCH /api/orders/:id/status` - Update order status (Admin)
+
+### Wallet
+- `GET /api/wallet/balance` - Get wallet balance
+- `POST /api/wallet/recharge` - Recharge wallet
+- `GET /api/wallet/transactions` - Get transaction history
+- `GET /api/wallet/stats` - Get wallet statistics
+
+### Feedback
+- `POST /api/feedback` - Submit feedback
+- `GET /api/feedback/menu-item/:id` - Get item feedback
+- `GET /api/feedback/my-feedback` - Get user feedback
+- `POST /api/feedback/:id/helpful` - Mark feedback as helpful
+
+## 🔒 Security Features
+
+- **JWT Authentication**: Secure token-based authentication
+- **Password Hashing**: bcrypt for secure password storage
+- **Input Validation**: Express-validator for request validation
+- **Role-based Access**: Different permissions for students and admins
+- **CORS Protection**: Cross-origin request security
+
+## 🎨 UI/UX Features
+
+- **Modern Design**: Clean and intuitive interface
+- **Responsive Layout**: Works on all device sizes
+- **Interactive Elements**: Smooth animations and hover effects
+- **Real-time Updates**: Dynamic content updates without page refresh
+- **Loading States**: Visual feedback during data loading
+- **Error Handling**: User-friendly error messages
+
+## 📊 Database Schema
+
+### Users Collection
+- Personal information (name, email, phone)
+- Student details (ID, department, year)
+- Wallet balance and transaction history
+- Authentication credentials
+
+### Menu Items Collection
+- Item details (name, description, price)
+- Nutritional information and dietary preferences
+- Availability schedules and quantity tracking
+- Ratings and reviews
+
+### Orders Collection
+- Order items and quantities
+- Payment information and status
+- Timestamps and delivery tracking
+- Customer notes and special instructions
+
+### Transactions Collection
+- Wallet operations (credit/debit)
+- Payment gateway integration
+- Balance tracking and audit trail
+
+### Feedback Collection
+- Ratings and reviews for menu items
+- Admin responses and moderation
+- Helpful votes and user engagement
 
 ## 🚀 Deployment
 
-### GitHub Pages
-1. Push code to GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Select source branch (usually `main` or `gh-pages`)
-4. Access via `https://username.github.io/repository-name`
+### Environment Setup
+1. Set `NODE_ENV=production` in your environment variables
+2. Configure production MongoDB URI
+3. Set secure JWT secret
+4. Configure email and payment gateway credentials
 
-### Netlify
-1. Connect GitHub repository to Netlify
-2. Deploy automatically on code changes
-3. Custom domain support available
-
-### Vercel
-1. Import project from GitHub
-2. Automatic deployments on push
-3. Serverless functions support if needed
+### Deployment Options
+- **Heroku**: Easy deployment with MongoDB Atlas
+- **DigitalOcean**: VPS deployment with PM2
+- **AWS**: EC2 with RDS or DocumentDB
+- **Vercel**: Serverless deployment option
 
 ## 🤝 Contributing
 
@@ -196,27 +259,29 @@ This is a demonstration/prototype application. For production use, consider:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## 📝 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## 🆘 Support
 
-For questions, issues, or suggestions:
-- Create an issue in the GitHub repository
-- Contact: support@docuchain.com
-- Visit: [DocuChain Website](https://your-domain.com)
+If you encounter any issues or have questions:
+
+1. Check the [Issues](../../issues) section
+2. Create a new issue with detailed information
+3. Contact the development team
 
 ## 🔮 Future Enhancements
 
-- **Real Blockchain Integration**: Connect to actual blockchain networks
-- **Advanced Encryption**: Implement AES encryption for file content
-- **Multi-signature Support**: Require multiple parties for document validation
-- **API Development**: REST API for third-party integrations
-- **Mobile App**: Native mobile applications for iOS and Android
-- **Enterprise Features**: Bulk upload, admin dashboard, analytics
-- **Smart Contracts**: Automated document workflows and conditions
+- **Mobile App**: React Native mobile application
+- **Payment Gateway**: Integration with Stripe/Razorpay
+- **Push Notifications**: Real-time order updates
+- **Inventory Management**: Stock tracking and alerts
+- **Loyalty Program**: Points and rewards system
+- **Multi-language Support**: Internationalization
+- **Advanced Analytics**: Machine learning insights
+- **QR Code Ordering**: Contactless ordering system
 
 ---
 
-**DocuChain** - Securing documents with blockchain technology for a trusted digital future.
+Made with ❤️ for campus food services
